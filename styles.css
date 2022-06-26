@@ -1,0 +1,18 @@
+.grid {
+    /* Added 6 to height and width to account for the border so the squares all fit. */
+    width: 606px;
+    height: 606px;
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.square {
+    height: 200px;
+    width: 200px;
+    border: 1px solid black;
+  
+}
+
+.mole {
+    background-color: blue;
+}
