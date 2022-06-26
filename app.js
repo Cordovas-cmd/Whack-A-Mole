@@ -1,3 +1,4 @@
+
     // select all squares so we can work with them in JS
     const squares = document.querySelectorAll('.square')
     // grab the mole 
@@ -9,6 +10,9 @@
 
     let result = 0
     let hitPosition
+    let currentTime = 60
+    let timerId = null
+
 
     // function to select a random square for the mole
     function randomSquare() {
@@ -38,7 +42,6 @@ square.addEventListener('mousedown', () => {
 if (square.id == hitPosition) {
     // add point to the score using result.
     result++
-    console.log('result')
     // set score text content to be the same as 'result'
     score.textContent = result
     // clear out hit position after adding a point so that we can add another point if we hit another mole.
@@ -51,10 +54,26 @@ if (square.id == hitPosition) {
     // Can attach the moveMole function to button to start the game.
     function moveMole() {
         // can stop the timer which will stop the mole if we attach it to a button as well.
-        let timerId = null
-        timerId = setInterval(randomSquare, 500)
+        timerId = setInterval(randomSquare, 600)
     }
     
     
 
     moveMole();
+
+    // Add a countdown function for the timer to decrement.
+
+    function countDown() {
+
+        // Grab the current time and subtract 1 from it
+        currentTime--
+        timeLeft.textContent = currentTime
+
+        if (currentTime == 0 ) {
+        clearInterval(countDownTimer)
+        clearInterval(timerId)
+        alert("GAME OVER! Your fincal score is " + result)}
+    
+    }
+    // set the countDown interaval to run the countDown function every second.
+    let countDownTimer = setInterval(countDown, 1000)
