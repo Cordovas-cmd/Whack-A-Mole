@@ -25,5 +25,16 @@
         // console.log(randomPosition)
     }
 
-  
-    randomSquare();
+// need to find a way to check if a mole was clicked and if so add a point to the score.
+
+    // A fucntion to run the randomSquare function every so often which in turn will move the 'mole'.
+    // Can attach the moveMole function to button to start the game.
+    function moveMole() {
+        // can stop the timer which will stop the mole if we attach it to a button as well.
+        let timerId = null
+        timerId = setInterval(randomSquare, 500)
+    }
+    
+    
+
+    moveMole();
